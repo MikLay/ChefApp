@@ -1,4 +1,4 @@
-package com.chefapp.entity;
+package com.chefapp.entity.vegetables;
 
 public class Melons extends Vegetable {
     public static class MelonsBuilder extends VegetableBuilder<Melons, MelonsBuilder> {

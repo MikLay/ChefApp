@@ -1,4 +1,4 @@
-package com.chefapp.entity;
+package com.chefapp.entity.vegetables;
 
 public class Spicy extends Vegetable {
 

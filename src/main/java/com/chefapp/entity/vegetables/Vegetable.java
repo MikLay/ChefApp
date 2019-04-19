@@ -1,7 +1,11 @@
-package com.chefapp.entity;
+package com.chefapp.entity.vegetables;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 public abstract class Vegetable {
 
+    private Long vegetableId;
     private double calories;
     private double caloriesH;
     private String name;
@@ -9,7 +13,11 @@ public abstract class Vegetable {
     private VegetableWayOfCooking[] wayOfCooking;
 
     public double getCalories() {
-        return caloriesH;
+        return calories;
+    }
+
+    public Long getVegetableId() {
+        return vegetableId;
     }
 
     public String getName() {
@@ -48,6 +56,10 @@ public abstract class Vegetable {
         this.wayOfCooking = wayOfCooking;
     }
 
+    protected void setVegetableId(Long vegetableId) {
+        this.vegetableId = vegetableId;
+    }
+
 
     protected static abstract class VegetableBuilder<T extends Vegetable, B extends VegetableBuilder> {
 
@@ -61,6 +73,11 @@ public abstract class Vegetable {
         protected VegetableBuilder() {
             actualVegetable = getActuall();
             actualBuilder = getActualBuilder();
+        }
+
+        public B id(Long id) {
+            actualVegetable.setVegetableId(id);
+            return actualBuilder;
         }
 
         public B name(String name) {
@@ -87,7 +104,21 @@ public abstract class Vegetable {
             actualVegetable.setCalories();
             return actualVegetable;
         }
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vegetable)) return false;
+        Vegetable vegetable = (Vegetable) o;
+        return Objects.equals(getName(), vegetable.getName()) &&
+                Arrays.equals(getWayOfCooking(), vegetable.getWayOfCooking());
+    }
 
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getName());
+        result = 31 * result + Arrays.hashCode(getWayOfCooking());
+        return result;
     }
 }

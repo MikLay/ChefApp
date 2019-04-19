@@ -1,4 +1,4 @@
-package com.chefapp.entity;
+package com.chefapp.entity.vegetables;
 
 public class RootCrop extends Vegetable {
     public static class RootCropBuilder extends VegetableBuilder<RootCrop,RootCropBuilder>

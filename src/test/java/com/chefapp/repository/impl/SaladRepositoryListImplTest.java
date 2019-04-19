@@ -15,7 +15,7 @@ public class SaladRepositoryListImplTest {
 
 
     @Test
-    public void ShouldGetSalads() {
+    public void shouldGetSalads() {
         List<Salad<Vegetable>> whole = generateList();
         SaladRepositoryListImpl saladsImp = new SaladRepositoryListImpl(whole);
         List<Salad<Vegetable>> actual = saladsImp.getSalads();
@@ -23,7 +23,7 @@ public class SaladRepositoryListImplTest {
     }
 
     @Test
-    public void findByCalories() {
+    public void shouldFindByCalories() {
         SaladRepositoryListImpl saladsImpl = new SaladRepositoryListImpl(generateList());
         List<Salad<Vegetable>> actual = saladsImpl.findByCalories(43, 200);
         List<Salad<Vegetable>> expected = Collections.singletonList(
@@ -37,7 +37,7 @@ public class SaladRepositoryListImplTest {
     }
 
     @Test
-    public void findByCalories1() {
+    public void shouldFindByCalories1() {
         SaladRepositoryListImpl saladsImpl = new SaladRepositoryListImpl(generateList());
         List<Salad<Vegetable>> actual = saladsImpl.findByCalories(96D);
         List<Salad<Vegetable>> expected = Collections.singletonList(
@@ -51,7 +51,7 @@ public class SaladRepositoryListImplTest {
     }
 
     @Test
-    public void findByName() {
+    public void shouldFindByName() {
         SaladRepositoryListImpl saladsImpl = new SaladRepositoryListImpl(generateList());
         List<Salad<Vegetable>> actual = saladsImpl.findByName("S2");
         List<Salad<Vegetable>> expected = Collections.singletonList(
@@ -67,7 +67,7 @@ public class SaladRepositoryListImplTest {
     }
 
     @Test
-    public void addSalad() {
+    public void shouldAddSalad() {
         SaladRepositoryListImpl saladsImpl = new SaladRepositoryListImpl(new ArrayList<>(generateList()));
         Salad<Vegetable> addedSalad = new Salad<>(1L, "NewSalad", asList(
                 createPotato(41, 150),
@@ -83,7 +83,7 @@ public class SaladRepositoryListImplTest {
     }
 
     @Test
-    public void removeSalad() {
+    public void shouldRemoveSalad() {
         SaladRepositoryListImpl saladsImpl = new SaladRepositoryListImpl(new ArrayList<>(generateList()));
         Salad<Vegetable> removedSalad = new Salad<>(1L, "S2", asList(
                 createPotato(41, 150),

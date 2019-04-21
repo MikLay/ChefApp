@@ -17,6 +17,11 @@ public class SaladServiceImpl implements SaladService {
     }
 
     @Override
+    public List<Salad<Vegetable>> getSalads(){
+        return saladRepository.getSalads();
+    }
+
+    @Override
     public List<Salad<Vegetable>> findByCalories(double start, double end) {
         return saladRepository.findByCalories(start, end);
     }

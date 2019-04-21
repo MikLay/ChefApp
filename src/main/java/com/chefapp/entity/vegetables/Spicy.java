@@ -14,8 +14,7 @@ public class Spicy extends Vegetable {
 
     public static class SpicyBuilder extends VegetableBuilder<Spicy, SpicyBuilder> {
 
-        public SpicyBuilder spicyLevel(int spiceLevel)
-        {
+        public SpicyBuilder spicyLevel(int spiceLevel) {
             actualVegetable.setSpicyLevel(spiceLevel);
             return this;
         }
@@ -29,5 +28,14 @@ public class Spicy extends Vegetable {
         protected SpicyBuilder getActualBuilder() {
             return this;
         }
+
+
+    }
+
+    @Override
+    public String toString() {
+        return "Spicy{" + super.toString() +
+                "spicyLevel=" + spicyLevel +
+                '}';
     }
 }

@@ -29,6 +29,11 @@ public class VegetableServiceImpl implements VegetableService {
     }
 
     @Override
+    public List<Vegetable> getVegetables() {
+        return vegetableRepository.getVegetables();
+    }
+
+    @Override
     public boolean addVegetable(Vegetable vegetable) {
         return vegetableRepository.addVegetable(vegetable);
     }

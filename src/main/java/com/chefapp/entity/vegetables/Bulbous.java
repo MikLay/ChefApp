@@ -29,4 +29,11 @@ public class Bulbous extends Vegetable {
             return this;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Bulbous{" + super.toString() +
+                "isSweet=" + isSweet +
+                '}';
+    }
 }

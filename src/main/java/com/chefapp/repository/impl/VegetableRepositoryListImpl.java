@@ -13,6 +13,7 @@ public class VegetableRepositoryListImpl implements VegetableRepository {
         this.vegetables = vegetables;
     }
 
+    @Override
     public List<Vegetable> getVegetables() {
         return vegetables;
     }

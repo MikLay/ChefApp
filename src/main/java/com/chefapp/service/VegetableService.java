@@ -12,6 +12,8 @@ public interface VegetableService {
 
     List<Vegetable> findByName(String name);
 
+    List<Vegetable> getVegetables();
+
     boolean addVegetable(Vegetable vegetable);
 
     boolean removeVegetable(Vegetable vegetable);

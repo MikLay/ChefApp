@@ -12,6 +12,8 @@ public interface SaladService {
     List<Salad<Vegetable>> sortByProperty(Salad.sortingProperties sortingProperty);
     List<Salad<Vegetable>> findByName(String name);
 
+    List<Salad<Vegetable>> getSalads();
+
     boolean createSalad(Salad<Vegetable> salad);
     boolean removeSalad(Salad<Vegetable> salad);
 

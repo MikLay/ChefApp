@@ -12,5 +12,12 @@ public class RootCrop extends Vegetable {
         protected RootCropBuilder getActualBuilder() {
             return this;
         }
+
+
+    }
+
+    @Override
+    public String toString() {
+        return "RootCrop{"+super.toString()+"}";
     }
 }

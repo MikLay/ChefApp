@@ -82,6 +82,15 @@ public class Salad<T extends Vegetable> {
 
     public enum sortingProperties {
         CALORITY, ID, NAME, VEGETABLESaMOUNT
+    }
 
+    @Override
+    public String toString() {
+        return "Salad{" +
+                "saladId=" + saladId +
+                ", name='" + name + '\'' +
+                ", caloric=" + caloric +
+                ", vegetables=" + vegetables+
+                '}';
     }
 }

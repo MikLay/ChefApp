@@ -107,6 +107,16 @@ public abstract class Vegetable {
     }
 
     @Override
+    public String toString() {
+        return  "vegetableId=" + vegetableId +
+                ", calories=" + calories +
+                ", caloriesH=" + caloriesH +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", wayOfCooking=" + Arrays.toString(wayOfCooking);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Vegetable)) return false;

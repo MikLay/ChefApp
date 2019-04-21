@@ -12,4 +12,9 @@ public class Melons extends Vegetable {
             return this;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Melons{"+super.toString()+"}";
+    }
 }

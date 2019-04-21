@@ -12,4 +12,9 @@ public class Cabbage extends Vegetable {
             return this;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Cabbage{" + super.toString() + "}";
+    }
 }

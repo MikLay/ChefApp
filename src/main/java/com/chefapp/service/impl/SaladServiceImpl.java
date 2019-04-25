@@ -17,7 +17,7 @@ public class SaladServiceImpl implements SaladService {
     }
 
     @Override
-    public List<Salad<Vegetable>> getSalads(){
+    public List<Salad<Vegetable>> getSalads() {
         return saladRepository.getSalads();
     }
 
@@ -34,18 +34,22 @@ public class SaladServiceImpl implements SaladService {
     @Override
     public List<Salad<Vegetable>> sortByProperty(Salad.sortingProperties sortingProperty) {
         Comparator<Salad> comparator;
-        switch (sortingProperty) {
-            case ID:
-                comparator = Salad.SaladIdComparator;
-                break;
-            case CALORITY:
-                comparator = Salad.SaladCalorityComparator;
-                break;
-            case VEGETABLESaMOUNT:
-                comparator = Salad.SaladVegetablesQuantityComparator;
-                break;
-            default:
-                comparator = Salad.SaladNameComparator;
+        if (sortingProperty != null) {
+            switch (sortingProperty) {
+                case ID:
+                    comparator = Salad.SaladIdComparator;
+                    break;
+                case CALORITY:
+                    comparator = Salad.SaladCalorityComparator;
+                    break;
+                case VEGETABLES_AMOUNT:
+                    comparator = Salad.SaladVegetablesQuantityComparator;
+                    break;
+                default:
+                    comparator = Salad.SaladNameComparator;
+            }
+        } else {
+            comparator = Salad.SaladNameComparator;
         }
         return saladRepository.getSalads().stream().sorted(comparator).collect(Collectors.toList());
     }

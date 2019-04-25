@@ -17,7 +17,7 @@ public interface SaladRepository {
 
     List<Salad<Vegetable>> getSalads();
 
-
     boolean addSalad(Salad<Vegetable> salad);
+
     boolean removeSalad(Salad<Vegetable> salad);
 }

@@ -20,60 +20,89 @@ public abstract class Vegetable {
         return vegetableId;
     }
 
+    protected void setVegetableId(Long vegetableId) {
+        this.vegetableId = vegetableId;
+    }
+
     public String getName() {
         return name;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public double getCaloriesH() {
-        return caloriesH;
-    }
-
-    public VegetableWayOfCooking[] getWayOfCooking() {
-        return wayOfCooking;
-    }
-
-    protected void setCaloriesH(double caloriesH) {
-        this.caloriesH = caloriesH;
-    }
-
-    protected void setCalories() {
-        this.calories = this.caloriesH / 100 * this.weight;
     }
 
     protected void setName(String name) {
         this.name = name;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
     protected void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public double getCaloriesH() {
+        return caloriesH;
+    }
+
+    protected void setCaloriesH(double caloriesH) {
+        this.caloriesH = caloriesH;
+    }
+
+    public VegetableWayOfCooking[] getWayOfCooking() {
+        return wayOfCooking;
     }
 
     protected void setWayOfCooking(VegetableWayOfCooking[] wayOfCooking) {
         this.wayOfCooking = wayOfCooking;
     }
 
-    protected void setVegetableId(Long vegetableId) {
-        this.vegetableId = vegetableId;
+    protected void setCalories() {
+        this.calories = this.caloriesH / 100 * this.weight;
     }
 
+    @Override
+    public String toString() {
+        return "vegetableId=" + vegetableId +
+                ", calories=" + calories +
+                ", caloriesH=" + caloriesH +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", wayOfCooking=" + Arrays.toString(wayOfCooking);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vegetable)) {
+            return false;
+        }
+        Vegetable vegetable = (Vegetable) o;
+        return Objects.equals(getName(), vegetable.getName()) &&
+                Arrays.equals(getWayOfCooking(), vegetable.getWayOfCooking());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getName());
+        result = 31 * result + Arrays.hashCode(getWayOfCooking());
+        return result;
+    }
 
     protected static abstract class VegetableBuilder<T extends Vegetable, B extends VegetableBuilder> {
 
         protected T actualVegetable;
         protected B actualBuilder;
 
-        protected abstract T getActuall();
-
-        protected abstract B getActualBuilder();
-
         protected VegetableBuilder() {
             actualVegetable = getActuall();
             actualBuilder = getActualBuilder();
         }
+
+        protected abstract T getActuall();
+
+        protected abstract B getActualBuilder();
 
         public B id(Long id) {
             actualVegetable.setVegetableId(id);
@@ -104,31 +133,5 @@ public abstract class Vegetable {
             actualVegetable.setCalories();
             return actualVegetable;
         }
-    }
-
-    @Override
-    public String toString() {
-        return  "vegetableId=" + vegetableId +
-                ", calories=" + calories +
-                ", caloriesH=" + caloriesH +
-                ", name='" + name + '\'' +
-                ", weight=" + weight +
-                ", wayOfCooking=" + Arrays.toString(wayOfCooking);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vegetable)) return false;
-        Vegetable vegetable = (Vegetable) o;
-        return Objects.equals(getName(), vegetable.getName()) &&
-                Arrays.equals(getWayOfCooking(), vegetable.getWayOfCooking());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(getName());
-        result = 31 * result + Arrays.hashCode(getWayOfCooking());
-        return result;
     }
 }

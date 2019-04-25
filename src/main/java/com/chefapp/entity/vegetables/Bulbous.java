@@ -12,6 +12,13 @@ public class Bulbous extends Vegetable {
         this.isSweet = isSweet;
     }
 
+    @Override
+    public String toString() {
+        return "Bulbous{" + super.toString() +
+                "isSweet=" + isSweet +
+                '}';
+    }
+
     public static class BulbousBuilder extends VegetableBuilder<Bulbous, BulbousBuilder> {
 
         public BulbousBuilder isSweet(boolean isSweet) {
@@ -28,12 +35,5 @@ public class Bulbous extends Vegetable {
         protected BulbousBuilder getActualBuilder() {
             return this;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Bulbous{" + super.toString() +
-                "isSweet=" + isSweet +
-                '}';
     }
 }

@@ -12,6 +12,13 @@ public class Spicy extends Vegetable {
         this.spicyLevel = spicyLevel;
     }
 
+    @Override
+    public String toString() {
+        return "Spicy{" + super.toString() +
+                "spicyLevel=" + spicyLevel +
+                '}';
+    }
+
     public static class SpicyBuilder extends VegetableBuilder<Spicy, SpicyBuilder> {
 
         public SpicyBuilder spicyLevel(int spiceLevel) {
@@ -30,12 +37,5 @@ public class Spicy extends Vegetable {
         }
 
 
-    }
-
-    @Override
-    public String toString() {
-        return "Spicy{" + super.toString() +
-                "spicyLevel=" + spicyLevel +
-                '}';
     }
 }

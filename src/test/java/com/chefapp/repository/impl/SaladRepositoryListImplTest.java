@@ -79,7 +79,7 @@ public class SaladRepositoryListImplTest {
         List<Salad<Vegetable>> expected = new ArrayList<>(generateList());
         expected.add(addedSalad);
         List<Salad<Vegetable>> actual = saladsImpl.getSalads();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class SaladRepositoryListImplTest {
         expected.remove(removedSalad);
         saladsImpl.removeSalad(removedSalad);
         List<Salad<Vegetable>> actual = saladsImpl.getSalads();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
 
     }
 
@@ -127,7 +127,9 @@ public class SaladRepositoryListImplTest {
         return new RootCrop.RootCropBuilder()
                 .name("Potato")
                 .wayOfCooking(
-                        new VegetableWayOfCooking[]{VegetableWayOfCooking.CUT, VegetableWayOfCooking.DICE, VegetableWayOfCooking.BOIL, VegetableWayOfCooking.MASH})
+                        new VegetableWayOfCooking[]
+                                {VegetableWayOfCooking.CUT, VegetableWayOfCooking.DICE,
+                                        VegetableWayOfCooking.BOIL, VegetableWayOfCooking.MASH})
                 .caloriesH(caloriesIn100)
                 .weight(weight)
                 .build();
@@ -147,7 +149,8 @@ public class SaladRepositoryListImplTest {
         return new Bulbous.BulbousBuilder()
                 .name("Onion")
                 .wayOfCooking(
-                        new VegetableWayOfCooking[]{VegetableWayOfCooking.CUT, VegetableWayOfCooking.DICE, VegetableWayOfCooking.SLICE})
+                        new VegetableWayOfCooking[]{VegetableWayOfCooking.CUT,
+                                VegetableWayOfCooking.DICE, VegetableWayOfCooking.SLICE})
                 .caloriesH(caloriesIn100)
                 .weight(weight)
                 .build();

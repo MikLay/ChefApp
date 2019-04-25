@@ -10,12 +10,12 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleApplication {
+public class Ui {
     private final SaladService saladService;
     private final VegetableService vegetableService;
     private final Scanner scanner = new Scanner(System.in);
 
-    public ConsoleApplication(SaladService saladService, VegetableService vegetableService) {
+    public Ui(SaladService saladService, VegetableService vegetableService) {
         scanner.useDelimiter("\n");
         this.saladService = saladService;
         this.vegetableService = vegetableService;
@@ -110,8 +110,7 @@ public class ConsoleApplication {
                 id = scanner.nextLong();
                 System.out.print("\nWrite name: ");
                 name = scanner.next();
-            }catch (InputMismatchException e)
-            {
+            } catch (InputMismatchException e) {
                 System.out.println("!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!\n" +
                         "Error was detected. Reason: Wrong input!\n" +
                         "!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!");
@@ -230,8 +229,7 @@ public class ConsoleApplication {
 
                 vegetableWayOfCookings = createVegetableWayOfCookings();
 
-            }catch (InputMismatchException e)
-            {
+            } catch (InputMismatchException e) {
                 System.out.println("!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!\n" +
                         "Error was detected. Reason: Wrong input!\n" +
                         "!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!");
@@ -245,17 +243,49 @@ public class ConsoleApplication {
                             "Sweat: ");
 
                     boolean isSweet = scanner.nextInt() == 1;
-                    return new Bulbous.BulbousBuilder().id(Id).name(name).weight(weight).caloriesH(caloriesH).wayOfCooking(vegetableWayOfCookings).isSweet(isSweet).build();
+                    return new Bulbous.BulbousBuilder()
+                            .id(Id)
+                            .name(name)
+                            .weight(weight)
+                            .caloriesH(caloriesH)
+                            .wayOfCooking(vegetableWayOfCookings)
+                            .isSweet(isSweet)
+                            .build();
                 case 2:
-                    return new Cabbage.CabbageBuilder().id(Id).name(name).weight(weight).caloriesH(caloriesH).wayOfCooking(vegetableWayOfCookings).build();
+                    return new Cabbage.CabbageBuilder()
+                            .id(Id)
+                            .name(name)
+                            .weight(weight)
+                            .caloriesH(caloriesH)
+                            .wayOfCooking(vegetableWayOfCookings)
+                            .build();
                 case 3:
-                    return new Melons.MelonsBuilder().id(Id).name(name).weight(weight).caloriesH(caloriesH).wayOfCooking(vegetableWayOfCookings).build();
+                    return new Melons.MelonsBuilder()
+                            .id(Id)
+                            .name(name)
+                            .weight(weight)
+                            .caloriesH(caloriesH)
+                            .wayOfCooking(vegetableWayOfCookings)
+                            .build();
                 case 4:
-                    return new RootCrop.RootCropBuilder().id(Id).name(name).weight(weight).caloriesH(caloriesH).wayOfCooking(vegetableWayOfCookings).build();
+                    return new RootCrop.RootCropBuilder()
+                            .id(Id)
+                            .name(name)
+                            .weight(weight)
+                            .caloriesH(caloriesH)
+                            .wayOfCooking(vegetableWayOfCookings)
+                            .build();
                 case 5:
                     System.out.print("Set spicy level: ");
                     int spicylevel = scanner.nextInt();
-                    return new Spicy.SpicyBuilder().id(Id).name(name).weight(weight).caloriesH(caloriesH).wayOfCooking(vegetableWayOfCookings).spicyLevel(spicylevel > -1 ? spicylevel : 0).build();
+                    return new Spicy.SpicyBuilder()
+                            .id(Id)
+                            .name(name)
+                            .weight(weight)
+                            .caloriesH(caloriesH)
+                            .wayOfCooking(vegetableWayOfCookings)
+                            .spicyLevel(spicylevel > -1 ? spicylevel : 0)
+                            .build();
 
             }
         }
@@ -359,7 +389,7 @@ public class ConsoleApplication {
                 sortingPropertie = Salad.sortingProperties.NAME;
                 break;
             case 3:
-                sortingPropertie = Salad.sortingProperties.VEGETABLESaMOUNT;
+                sortingPropertie = Salad.sortingProperties.VEGETABLES_AMOUNT;
                 break;
             case 4:
                 sortingPropertie = Salad.sortingProperties.CALORITY;

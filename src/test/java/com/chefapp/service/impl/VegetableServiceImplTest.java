@@ -12,7 +12,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -29,8 +30,8 @@ public class VegetableServiceImplTest {
     public void findByCalories() {
         List<Vegetable> expected = generateVegetables();
         when(vegetableRepository.findByCalories(40, 100)).thenReturn(generateVegetables());
-        List<Vegetable> actual = vegetableService.findByCalories(40,100);
-        assertEquals(expected,actual);
+        List<Vegetable> actual = vegetableService.findByCalories(40, 100);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -38,15 +39,17 @@ public class VegetableServiceImplTest {
         List<Vegetable> expected = generateVegetables();
         when(vegetableRepository.findByCalories(100)).thenReturn(generateVegetables());
         List<Vegetable> actual = vegetableService.findByCalories(100);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void findByName() {
-        List<Vegetable> expected = Collections.singletonList(generateSingleVegetable(1L, "Cucamber"));
-        when(vegetableRepository.findByCalories(100)).thenReturn(asList(generateSingleVegetable(1L,"Cucamber")));
+        List<Vegetable> expected = Collections
+                .singletonList(generateSingleVegetable(1L, "Cucamber"));
+        when(vegetableRepository.findByCalories(100))
+                .thenReturn(Collections.singletonList(generateSingleVegetable(1L, "Cucamber")));
         List<Vegetable> actual = vegetableService.findByCalories(100);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -67,8 +70,7 @@ public class VegetableServiceImplTest {
 
     }
 
-    List<Vegetable> generateVegetables()
-    {
+    private List<Vegetable> generateVegetables() {
         return asList(
                 new Melons
                         .MelonsBuilder()
@@ -100,15 +102,16 @@ public class VegetableServiceImplTest {
 
     }
 
-    Vegetable generateSingleVegetable(Long id,String name)
-    {
+    private Vegetable generateSingleVegetable(Long id, String name) {
         return new Melons
-                        .MelonsBuilder()
-                        .id(id)
-                        .name(name)
-                        .caloriesH(100)
-                        .weight(500)
-                        .wayOfCooking(new VegetableWayOfCooking[]{VegetableWayOfCooking.CUT, VegetableWayOfCooking.DICE, VegetableWayOfCooking.BOIL, VegetableWayOfCooking.MASH})
-                        .build();
+                .MelonsBuilder()
+                .id(id)
+                .name(name)
+                .caloriesH(100)
+                .weight(500)
+                .wayOfCooking(new VegetableWayOfCooking[]
+                        {VegetableWayOfCooking.CUT, VegetableWayOfCooking.DICE,
+                                VegetableWayOfCooking.BOIL, VegetableWayOfCooking.MASH})
+                .build();
     }
 }

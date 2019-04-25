@@ -4,6 +4,7 @@ import com.chefapp.entity.vegetables.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -31,7 +32,7 @@ public class VegetableRepositoryListImplTest {
     @Test
     public void shouldFindByCalories1() {
         VegetableRepositoryListImpl vegetableImpl = new VegetableRepositoryListImpl(generateVegetableList());
-        List<Vegetable> expected = new ArrayList<>(asList(createCabbage(63, 100)));
+        List<Vegetable> expected = new ArrayList<>(Collections.singletonList(createCabbage(63, 100)));
         List<Vegetable> actual = vegetableImpl.findByCalories(63);
         assertEquals(expected, actual);
     }
@@ -49,7 +50,8 @@ public class VegetableRepositoryListImplTest {
 
     @Test
     public void shouldAddVegetable() {
-        VegetableRepositoryListImpl vegetableImpl = new VegetableRepositoryListImpl(new ArrayList<>(generateVegetableList()));
+        VegetableRepositoryListImpl vegetableImpl =
+                new VegetableRepositoryListImpl(new ArrayList<>(generateVegetableList()));
         Vegetable addedVegetable = createCabbage(41, 200);
         List<Vegetable> expected = new ArrayList<>(generateVegetableList());
         expected.add(addedVegetable);
@@ -60,7 +62,8 @@ public class VegetableRepositoryListImplTest {
 
     @Test
     public void shouldRemoveVegetable() {
-        VegetableRepositoryListImpl vegetableImpl = new VegetableRepositoryListImpl(new ArrayList<>(generateVegetableList()));
+        VegetableRepositoryListImpl vegetableImpl =
+                new VegetableRepositoryListImpl(new ArrayList<>(generateVegetableList()));
         Vegetable removedVegetable = createBulbous(40, 100);
         List<Vegetable> expected = new ArrayList<>(generateVegetableList());
         expected.remove(removedVegetable);

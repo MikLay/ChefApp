@@ -31,7 +31,8 @@ public class SaladServiceImplTest {
 
     @Test
     public void shouldFindByCalories() {
-        when(saladRepository.findByCalories(40, 100)).thenReturn(Collections.singletonList(generateSalad(1L, "Venegret", 100)));
+        when(saladRepository.findByCalories(40, 100))
+                .thenReturn(Collections.singletonList(generateSalad(1L, "Venegret", 100)));
         List<Salad<Vegetable>> actual = saladService.findByCalories(40, 100);
         List<Salad<Vegetable>> expected = Collections.singletonList(generateSalad(1L, "Venegret", 100));
         assertEquals(expected, actual);
@@ -39,7 +40,8 @@ public class SaladServiceImplTest {
 
     @Test
     public void shouldFindByCalories1() {
-        when(saladRepository.findByCalories(100)).thenReturn(Collections.singletonList(generateSalad(1L, "Venegret", 100)));
+        when(saladRepository.findByCalories(100))
+                .thenReturn(Collections.singletonList(generateSalad(1L, "Venegret", 100)));
 
         List<Salad<Vegetable>> actual = saladService.findByCalories(100);
         List<Salad<Vegetable>> expected = Collections.singletonList(generateSalad(1L, "Venegret", 100));
@@ -86,9 +88,12 @@ public class SaladServiceImplTest {
 
     @Test
     public void shouldFindByName() {
-        when(saladRepository.findByName("Venegret")).thenReturn(Collections.singletonList(generateSalad(1L, "Venegret", 100)));
+        when(saladRepository.findByName("Venegret"))
+                .thenReturn(Collections
+                        .singletonList(generateSalad(1L, "Venegret", 100)));
         List<Salad<Vegetable>> actual = saladService.findByName("Venegret");
-        List<Salad<Vegetable>> expected = Collections.singletonList(generateSalad(1L, "Venegret", 100));
+        List<Salad<Vegetable>> expected = Collections
+                .singletonList(generateSalad(1L, "Venegret", 100));
         assertEquals(expected, actual);
     }
 
